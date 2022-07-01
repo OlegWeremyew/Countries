@@ -6,6 +6,10 @@ export const Wrapper = styled.article`
   box-shadow: var(--shadow);
   cursor: pointer;
   overflow: hidden;
+
+  &:hover {
+    box-shadow: 0 0 10px 1px var(--color-hover-inout);
+  }
 `;
 
 export const CardImage = styled.img`
@@ -18,7 +22,7 @@ export const CardImage = styled.img`
 `;
 
 export const CardBody = styled.div`
-  padding: 1rem 1.5rem 2rem;
+  padding: 1.5rem 1.5rem 1rem;
 `;
 
 export const CardTitle = styled.h3`

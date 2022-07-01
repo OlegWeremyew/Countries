@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
+
+  @media (max-width: 767px) {
+    padding: 1rem 0;
+  }
 `;
 
 export const Title = styled(Link).attrs({
@@ -20,6 +24,12 @@ export const Title = styled(Link).attrs({
   font-size: var(--fs-sm);
   text-decoration: none;
   font-weight: var(--fw-bold);
+  padding: 0.5rem;
+  border-radius: var(--radii);
+
+  &:hover {
+    background-color: var(--colors-bg);
+  }
 `;
 
 export const ModeSwitcher = styled.div`
@@ -28,4 +38,10 @@ export const ModeSwitcher = styled.div`
   cursor: pointer;
   font-weight: var(--fw-bold);
   text-transform: capitalize;
+  padding: 0.5rem;
+  border-radius: var(--radii);
+
+  &:hover {
+    background-color: var(--colors-bg);
+  }
 `;

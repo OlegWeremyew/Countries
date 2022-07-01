@@ -6,14 +6,14 @@ import {
   ListGroup,
   ListItem,
   Meta,
-  Tag,
   TagGroup,
   Wrapper,
 } from './components';
 import axios from 'axios';
-import { filterByCode } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import { InfoType } from './types';
+import { filterByCode } from '../../utils/filterByCode/filterByCode';
+import { Button } from '../../layout';
 
 export const Info: FC<InfoType> = ({
   name,
@@ -42,8 +42,8 @@ export const Info: FC<InfoType> = ({
       axios
         .get(filterByCode(borders))
         .then(res => res.data)
-        .then((res: any[]) => {
-          setNeighbors(res.map(c => c.name));
+        .then((data: any[]) => {
+          setNeighbors(data.map(c => c.name));
         });
   }, [borders]);
 
@@ -107,9 +107,9 @@ export const Info: FC<InfoType> = ({
           ) : (
             <TagGroup>
               {neighbors.map(b => (
-                <Tag key={b} onClick={() => changeCountryPage(b)}>
+                <Button key={b} onClick={() => changeCountryPage(b)}>
                   {b}
-                </Tag>
+                </Button>
               ))}
             </TagGroup>
           )}

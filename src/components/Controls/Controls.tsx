@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Search } from './Search';
-import { CustomSelect } from './CustomSelect';
 import { Wrapper } from './components';
 import { ControlsType } from './types';
 import { options } from './data';
+import { CustomSelect } from '../../layout';
 
 export const Controls: FC<ControlsType> = ({ onSearch }) => {
   const [search, setSearch] = useState<string>('');

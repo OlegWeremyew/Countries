@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { Nullable } from '../../types';
 import axios from 'axios';
-import { searchByCountry } from '../../config';
-import { Button } from '../../common';
 import { Info } from '../../components';
 import { ResponseType } from '../../App/types';
+import { Button } from '../../layout';
+import { searchByCountry } from '../../utils/searchByCountry/searchByCountry';
 
 const Details: FC = () => {
   const { name } = useParams<{ name: string }>();

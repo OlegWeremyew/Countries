@@ -63,22 +63,10 @@ export const Meta = styled.div`
   & > b {
     font-weight: var(--fw-bold);
   }
-  @media (min-width: 767px) {
-    flex-direction: row;
-    align-items: center;
-  }
 `;
 
 export const TagGroup = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-`;
-
-export const Tag = styled.span`
-  padding: 0 1rem;
-  background-color: var(--colors-ui-base);
-  box-shadow: var(--shadow);
-  line-height: 1.5;
-  cursor: pointer;
 `;

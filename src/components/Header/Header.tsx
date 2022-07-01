@@ -5,15 +5,15 @@ import { Container } from '../../layout';
 import { ThemeType } from './types';
 
 export const Header: FC = () => {
-  const [theme, setTheme] = useState<ThemeType>('light');
-
-  const toggleTheme = (): void => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
+  const [theme, setTheme] = useState<ThemeType>('dark');
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
+
+  const toggleTheme = (): void => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <HeaderElement id="header">

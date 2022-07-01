@@ -8,6 +8,7 @@
 :root {
     /* Typography */
     --family: 'Nunito Sans', sans-serif;
+    --fs-sm-x: 11px;
     --fs-sm: 14px;
     --fs-md: 16px;
     --fw-light: 300;

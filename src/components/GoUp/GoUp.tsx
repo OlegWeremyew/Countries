@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
-import { Button } from '../../common';
 import { IoHome } from 'react-icons/io5';
 import { Link } from 'react-scroll';
+import { Wrapper } from './components';
+import { Button } from '../../layout';
 
 export const GoUp: FC = () => (
-  <div>
-    <Link to="header" spy smooth offset={-30} duration={1500}>
+  <Wrapper>
+    <Link to="header" spy smooth offset={-30} duration={500}>
       <Button>
-        <span>Go Up</span>
+        <span>Return to the top</span>
         <IoHome />
       </Button>
     </Link>
-  </div>
+  </Wrapper>
 );

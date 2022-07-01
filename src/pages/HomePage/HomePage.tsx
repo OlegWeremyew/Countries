@@ -5,9 +5,28 @@ import { ALL_COUNTRIES } from '../../config';
 import { ResponseType } from '../../App/types';
 import { CountryInfoType, HomePageType } from './types';
 import { GoUp } from '../../components/GoUp';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
   const [filteredCountries, setFilteredCountries] = useState<ResponseType[]>(countries);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const pageSize: number = 24;
+
+  const lastCountryIndex = currentPage * pageSize;
+  const firstCountryIndex = lastCountryIndex - pageSize;
+  const currentCountry = filteredCountries.slice(firstCountryIndex, lastCountryIndex);
+
+  const paginate = (page: number): void => {
+    setCurrentPage(page);
+  };
+
+  const nextPage = (): void => {
+    setCurrentPage(prev => prev + 1);
+  };
+
+  const prevPage = (): void => {
+    setCurrentPage(prev => prev - 1);
+  };
 
   const handleSearch = (search: string, region: string): void => {
     let data = [...countries];
@@ -24,7 +43,9 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
 
   useEffect(() => {
     if (!countries.length) {
-      axios.get<ResponseType[]>(ALL_COUNTRIES).then(({ data }) => setCountries(data));
+      axios
+        .get<ResponseType[]>(`${ALL_COUNTRIES}`)
+        .then(({ data }) => setCountries(data));
     }
   }, []);
 
@@ -36,7 +57,7 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
     <>
       <Controls onSearch={handleSearch} />
       <List>
-        {filteredCountries.map(country => {
+        {currentCountry.map(country => {
           const countryInfo: CountryInfoType = {
             img: country.flags.png,
             name: country.name,
@@ -50,6 +71,13 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
         })}
       </List>
       {filteredCountries.length >= 12 && <GoUp />}
+      <Pagination
+        pageSize={pageSize}
+        totalCountries={filteredCountries.length}
+        paginate={paginate}
+        nextPage={nextPage}
+        prevPage={prevPage}
+      />
     </>
   );
 };
