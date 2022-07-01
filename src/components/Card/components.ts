@@ -34,7 +34,7 @@ export const CardTitle = styled.h3`
 export const CardList = styled.ul`
   list-style: none;
   margin: 0;
-  padding: 1rem 0 0;
+  padding: 0.5rem 0 0;
 `;
 
 export const CardListItem = styled.li`

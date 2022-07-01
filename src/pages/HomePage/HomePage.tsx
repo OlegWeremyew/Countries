@@ -71,13 +71,15 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
         })}
       </List>
       {filteredCountries.length >= 12 && <GoUp />}
-      <Pagination
-        pageSize={pageSize}
-        totalCountries={filteredCountries.length}
-        paginate={paginate}
-        nextPage={nextPage}
-        prevPage={prevPage}
-      />
+      {filteredCountries.length >= 20 && (
+        <Pagination
+          pageSize={pageSize}
+          totalCountries={filteredCountries.length}
+          paginate={paginate}
+          nextPage={nextPage}
+          prevPage={prevPage}
+        />
+      )}
     </>
   );
 };

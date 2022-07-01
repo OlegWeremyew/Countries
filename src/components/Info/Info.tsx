@@ -9,6 +9,10 @@ import {
   TagGroup,
   Wrapper,
 } from './components';
+// @ts-ignore
+import Roll from 'react-reveal/Roll';
+// @ts-ignore
+import Fade from 'react-reveal/Fade';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { InfoType } from './types';
@@ -49,71 +53,75 @@ export const Info: FC<InfoType> = ({
 
   return (
     <Wrapper>
-      <InfoImage src={flag} alt={name} />
+      <Fade left>
+        <InfoImage src={flag} alt={name} />
+      </Fade>
       <div>
-        <InfoTitle>{name}</InfoTitle>
-        <ListGroup>
-          <List>
-            <ListItem>
-              <b>Native Name:</b> {nativeName}
-            </ListItem>
-            <ListItem>
-              <b>Population:</b> {population}
-            </ListItem>
-            <ListItem>
-              <b>Region:</b> {region}
-            </ListItem>
-            <ListItem>
-              <b>Sub Region:</b> {subregion}
-            </ListItem>
-            <ListItem>
-              <b>Capital:</b> {capital}
-            </ListItem>
-            <ListItem>
-              <b>Area:</b> {area}{' '}
-              <span>
-                km<sup>2</sup>
-              </span>
-            </ListItem>
-            <ListItem>
-              <b>Timezones:</b> {timezones}
-            </ListItem>
-          </List>
-          <List>
-            <ListItem>
-              <b>Top Level Domain:</b>{' '}
-              {topLevelDomain.map(d => (
-                <span key={d}>{d}</span>
-              ))}
-            </ListItem>
-            <ListItem>
-              <b>Currency:</b>{' '}
-              {currencies.map(c => (
-                <span key={c.code}>{c.name} </span>
-              ))}
-            </ListItem>
-            <ListItem>
-              <b>Top Level Domain:</b>{' '}
-              {languages.map(l => (
-                <span key={l.name}>{l.name}</span>
-              ))}
-            </ListItem>
-          </List>
-        </ListGroup>
-        <Meta>
-          <b>Border Countries</b>
-          {!borders.length ? (
-            <span>There is no border countries</span>
-          ) : (
-            <TagGroup>
-              {neighbors.map(b => (
-                <Button key={b} onClick={() => changeCountryPage(b)}>
-                  {b}
-                </Button>
-              ))}
-            </TagGroup>
-          )}
-        </Meta>
+        <Roll right>
+          <InfoTitle>{name}</InfoTitle>
+          <ListGroup>
+            <List>
+              <ListItem>
+                <b>Native Name:</b> {nativeName}
+              </ListItem>
+              <ListItem>
+                <b>Population:</b> {population}
+              </ListItem>
+              <ListItem>
+                <b>Region:</b> {region}
+              </ListItem>
+              <ListItem>
+                <b>Sub Region:</b> {subregion}
+              </ListItem>
+              <ListItem>
+                <b>Capital:</b> {capital}
+              </ListItem>
+              <ListItem>
+                <b>Area:</b> {area}{' '}
+                <span>
+                  km<sup>2</sup>
+                </span>
+              </ListItem>
+              <ListItem>
+                <b>Timezones:</b> {timezones}
+              </ListItem>
+            </List>
+            <List>
+              <ListItem>
+                <b>Top Level Domain:</b>{' '}
+                {topLevelDomain.map(d => (
+                  <span key={d}>{d}</span>
+                ))}
+              </ListItem>
+              <ListItem>
+                <b>Currency:</b>{' '}
+                {currencies.map(c => (
+                  <span key={c.code}>{c.name} </span>
+                ))}
+              </ListItem>
+              <ListItem>
+                <b>Top Level Domain:</b>{' '}
+                {languages.map(l => (
+                  <span key={l.name}>{l.name}</span>
+                ))}
+              </ListItem>
+            </List>
+          </ListGroup>
+          <Meta>
+            <b>Border Countries</b>
+            {!borders.length ? (
+              <span>There is no border countries</span>
+            ) : (
+              <TagGroup>
+                {neighbors.map(b => (
+                  <Button key={b} onClick={() => changeCountryPage(b)}>
+                    {b}
+                  </Button>
+                ))}
+              </TagGroup>
+            )}
+          </Meta>
+        </Roll>
       </div>
     </Wrapper>
   );

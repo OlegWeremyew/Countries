@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Tilt from 'react-parallax-tilt';
 import {
   CardBody,
   CardImage,
@@ -18,18 +19,20 @@ export const Card: FC<CardType> = ({ img, name, info = [] }) => {
   };
 
   return (
-    <Wrapper onClick={goToCountryPage}>
-      <CardImage src={img} alt="country flag" />
-      <CardBody>
-        <CardTitle>{name}</CardTitle>
-        <CardList>
-          {info.map(el => (
-            <CardListItem key={el.title}>
-              <b>{el.title}:</b> {el.description}
-            </CardListItem>
-          ))}
-        </CardList>
-      </CardBody>
-    </Wrapper>
+    <Tilt>
+      <Wrapper onClick={goToCountryPage}>
+        <CardImage src={img} alt="country flag" />
+        <CardBody>
+          <CardTitle>{name}</CardTitle>
+          <CardList>
+            {info.map(el => (
+              <CardListItem key={el.title}>
+                <b>{el.title}:</b> {el.description}
+              </CardListItem>
+            ))}
+          </CardList>
+        </CardBody>
+      </Wrapper>
+    </Tilt>
   );
 };

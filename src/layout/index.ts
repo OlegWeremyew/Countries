@@ -30,7 +30,12 @@ export const CustomSelect = styled(Select).attrs({
       ...provided,
       cursor: 'pointer',
       color: 'var(--colors-text)',
-      backgroundColor: state.isSelected ? 'var(--colors-bg)' : 'var(--colors-ui-base)',
+      // eslint-disable-next-line no-nested-ternary
+      backgroundColor: state.isSelected
+        ? 'var(--colors-bg)'
+        : state.isFocused
+        ? 'var(--color-hover-inout)'
+        : 'var(--colors-ui-base)',
     }),
   },
 })`
@@ -74,5 +79,9 @@ export const Button = styled.button.attrs({
   &:hover {
     border: 2px solid var(--color-hover-inout);
     background-color: var(--colors-ui-base);
+  }
+
+  @media (max-width: 425px) {
+    font-size: var(--fs-sm);
   }
 `;
