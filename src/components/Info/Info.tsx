@@ -12,21 +12,8 @@ import {
 } from './components';
 import axios from 'axios';
 import { filterByCode } from '../../config';
-import { useLocation, useNavigate } from 'react-router-dom';
-
-export type InfoType = {
-  name?: string;
-  nativeName?: string;
-  flag?: string;
-  capital?: string;
-  population?: number;
-  region?: any;
-  subregion?: string;
-  topLevelDomain?: any[];
-  currencies?: any[];
-  languages?: any[];
-  borders?: any[];
-};
+import { useNavigate } from 'react-router-dom';
+import { InfoType } from './types';
 
 export const Info: FC<InfoType> = ({
   name,
@@ -40,15 +27,14 @@ export const Info: FC<InfoType> = ({
   currencies = [],
   languages = [],
   borders = [],
+  area,
+  timezones,
 }) => {
   const [neighbors, setNeighbors] = useState<string[]>([]);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const changeCountryPage = (path: string): void => {
-    console.log(location.pathname);
-    console.log(`country/${path}`);
-    navigate(`country/${path}`, { replace: true });
+    navigate(`/country/${path}`);
   };
 
   useEffect(() => {
@@ -56,7 +42,9 @@ export const Info: FC<InfoType> = ({
       axios
         .get(filterByCode(borders))
         .then(res => res.data)
-        .then((res: any[]) => setNeighbors(res.map(c => c.name)));
+        .then((res: any[]) => {
+          setNeighbors(res.map(c => c.name));
+        });
   }, [borders]);
 
   return (
@@ -70,7 +58,7 @@ export const Info: FC<InfoType> = ({
               <b>Native Name:</b> {nativeName}
             </ListItem>
             <ListItem>
-              <b>Population</b> {population}
+              <b>Population:</b> {population}
             </ListItem>
             <ListItem>
               <b>Region:</b> {region}
@@ -81,22 +69,31 @@ export const Info: FC<InfoType> = ({
             <ListItem>
               <b>Capital:</b> {capital}
             </ListItem>
+            <ListItem>
+              <b>Area:</b> {area}{' '}
+              <span>
+                km<sup>2</sup>
+              </span>
+            </ListItem>
+            <ListItem>
+              <b>Timezones:</b> {timezones}
+            </ListItem>
           </List>
           <List>
             <ListItem>
-              <b>Top Level Domain</b>{' '}
+              <b>Top Level Domain:</b>{' '}
               {topLevelDomain.map(d => (
                 <span key={d}>{d}</span>
               ))}
             </ListItem>
             <ListItem>
-              <b>Currency</b>{' '}
+              <b>Currency:</b>{' '}
               {currencies.map(c => (
                 <span key={c.code}>{c.name} </span>
               ))}
             </ListItem>
             <ListItem>
-              <b>Top Level Domain</b>{' '}
+              <b>Top Level Domain:</b>{' '}
               {languages.map(l => (
                 <span key={l.name}>{l.name}</span>
               ))}

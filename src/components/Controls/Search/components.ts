@@ -5,11 +5,17 @@ export const InputContainer = styled.label`
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
+  border: 2px solid transparent;
 
   border-radius: var(--radii);
   box-shadow: var(--shadow);
   width: 100%;
   margin-bottom: 1rem;
+  cursor: text;
+
+  &:hover {
+    border: 2px solid var(--color-hover-inout);
+  }
 
   @media (min-width: 767px) {
     margin-bottom: 0;

@@ -8,17 +8,7 @@ import {
   Wrapper,
 } from './components';
 import { useNavigate } from 'react-router-dom';
-
-export type CardType = {
-  img: string;
-  name: string;
-  info: InfoItem[];
-};
-
-export type InfoItem = {
-  title: string;
-  description: string;
-};
+import { CardType } from './types';
 
 export const Card: FC<CardType> = ({ img, name, info = [] }) => {
   const navigate = useNavigate();

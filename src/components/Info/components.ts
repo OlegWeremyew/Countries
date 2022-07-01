@@ -23,6 +23,7 @@ export const InfoImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border: 1pxsolid var(--colors-text);
 `;
 
 export const InfoTitle = styled.h1`

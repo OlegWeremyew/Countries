@@ -2,19 +2,9 @@ import React, { FC, useEffect, useState } from 'react';
 import { Card, Controls, List } from '../../components';
 import axios from 'axios';
 import { ALL_COUNTRIES } from '../../config';
-import { InfoItem } from '../../components/Card/Card';
-import { ResponseType } from '../../App';
-
-export type CountryInfoType = {
-  img: string;
-  name: string;
-  info: InfoItem[];
-};
-
-export type HomePageType = {
-  countries: ResponseType[];
-  setCountries: (data: ResponseType[]) => void;
-};
+import { ResponseType } from '../../App/types';
+import { CountryInfoType, HomePageType } from './types';
+import { GoUp } from '../../components/GoUp';
 
 const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
   const [filteredCountries, setFilteredCountries] = useState<ResponseType[]>(countries);
@@ -59,6 +49,7 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
           return <Card key={country.name} {...countryInfo} />;
         })}
       </List>
+      {filteredCountries.length >= 12 && <GoUp />}
     </>
   );
 };
