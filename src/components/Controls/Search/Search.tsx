@@ -2,7 +2,12 @@ import React, { FC, ChangeEvent } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { Input, InputContainer } from './components';
 
-export const Search: FC<any> = ({ search, setSearch }) => {
+export type SearchType = {
+  search: string;
+  setSearch: (value: string) => void;
+};
+
+export const Search: FC<SearchType> = ({ search, setSearch }) => {
   const changeSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.currentTarget.value);
   };
