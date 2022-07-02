@@ -12,17 +12,18 @@ export const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
   const lastCountryIndex = currentPage * pageSize;
   const firstCountryIndex = lastCountryIndex - pageSize;
   const currentCountry = filteredCountries.slice(firstCountryIndex, lastCountryIndex);
+  const numberOfCountries = Math.ceil(filteredCountries.length / pageSize);
 
   const paginate = (page: number): void => {
     setCurrentPage(page);
   };
 
   const nextPage = (): void => {
-    setCurrentPage(prev => prev + 1);
+    setCurrentPage(prev => (prev === numberOfCountries ? prev : prev + 1));
   };
 
   const prevPage = (): void => {
-    setCurrentPage(prev => prev - 1);
+    setCurrentPage(prev => (prev === 1 ? prev : prev - 1));
   };
 
   const handleSearch = (search: string, region: string): void => {
@@ -68,8 +69,8 @@ export const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
       {filteredCountries.length >= 12 && <GoUp />}
       {filteredCountries.length >= 20 && (
         <Pagination
-          pageSize={pageSize}
-          totalCountries={filteredCountries.length}
+          currentPage={currentPage}
+          numberOfCountries={numberOfCountries}
           paginate={paginate}
           nextPage={nextPage}
           prevPage={prevPage}

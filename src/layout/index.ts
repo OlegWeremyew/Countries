@@ -76,9 +76,15 @@ export const Button = styled.button.attrs({
   color: var(--colors-text);
   cursor: pointer;
 
-  &:hover {
+  &:not([disabled]):hover {
     border: 2px solid var(--color-hover-inout);
     background-color: var(--colors-ui-base);
+  }
+
+  &:not([disabled]):focus {
+    border: 2px solid var(--color-hover-inout);
+    background-color: var(--colors-ui-base);
+    opacity: 0.7;
   }
 
   @media (max-width: 425px) {

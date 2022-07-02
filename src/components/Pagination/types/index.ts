@@ -1,6 +1,6 @@
 export type PaginationProps = {
-  pageSize: number;
-  totalCountries: number;
+  numberOfCountries: number;
+  currentPage: number;
   paginate: (page: number) => void;
   nextPage: () => void;
   prevPage: () => void;
