@@ -3,7 +3,7 @@ import { Search } from './Search';
 import { Wrapper } from './components';
 import { ControlsType } from './types';
 import { options } from './data';
-import { CustomSelect } from '../../layout';
+import { CustomSelect } from 'layout';
 
 export const Controls: FC<ControlsType> = ({ onSearch }) => {
   const [search, setSearch] = useState<string>('');

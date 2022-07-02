@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Button, Wrapper } from './components';
 import { IoCaretBackSharp, IoCaretForwardSharp } from 'react-icons/io5';
+import { PaginationProps } from 'components/Pagination/types';
 
-export const Pagination: FC<any> = ({
+export const Pagination: FC<PaginationProps> = ({
   pageSize,
   totalCountries,
   paginate,

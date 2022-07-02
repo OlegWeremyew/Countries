@@ -1,4 +1,4 @@
-import { BASE_URL } from '../../config';
+import { BASE_URL } from 'config';
 
-export const filterByCode = (codes: any[]): string =>
+export const filterByCode = (codes: string[]): string =>
   `${BASE_URL}alpha?codes=${codes.join(',')}`;

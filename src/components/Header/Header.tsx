@@ -1,13 +1,19 @@
 import React, { FC, useEffect, useState } from 'react';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import { HeaderElement, ModeSwitcher, Title, Wrapper } from './components';
-import { Container } from '../../layout';
+import { Container } from 'layout';
 import { ThemeType } from './types';
 
 export const Header: FC = () => {
   const [theme, setTheme] = useState<ThemeType>('dark');
 
   useEffect(() => {
+    let themeAsString = localStorage.getItem('theme');
+    themeAsString && setTheme(JSON.parse(themeAsString));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme));
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
 

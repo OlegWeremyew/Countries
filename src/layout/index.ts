@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Select from 'react-select';
 
@@ -83,5 +83,14 @@ export const Button = styled.button.attrs({
 
   @media (max-width: 425px) {
     font-size: var(--fs-sm);
+  }
+`;
+
+export const rotateAnimation = keyframes`
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
   }
 `;

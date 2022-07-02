@@ -16,8 +16,8 @@ import Fade from 'react-reveal/Fade';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { InfoType } from './types';
-import { filterByCode } from '../../utils/filterByCode/filterByCode';
-import { Button } from '../../layout';
+import { filterByCode } from 'utils';
+import { Button } from 'layout';
 
 export const Info: FC<InfoType> = ({
   name,

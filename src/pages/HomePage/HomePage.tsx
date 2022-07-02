@@ -1,13 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Card, Controls, List } from '../../components';
-import axios from 'axios';
-import { ALL_COUNTRIES } from '../../config';
-import { ResponseType } from '../../App/types';
+import { Card, Controls, List, GoUp, Pagination } from 'components';
+import { ResponseType } from 'App/types';
 import { CountryInfoType, HomePageType } from './types';
-import { GoUp } from '../../components/GoUp';
-import { Pagination } from '../../components/Pagination/Pagination';
+import { countryApi } from 'api';
 
-const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
+export const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
   const [filteredCountries, setFilteredCountries] = useState<ResponseType[]>(countries);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const pageSize: number = 24;
@@ -43,9 +40,7 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
 
   useEffect(() => {
     if (!countries.length) {
-      axios
-        .get<ResponseType[]>(`${ALL_COUNTRIES}`)
-        .then(({ data }) => setCountries(data));
+      countryApi.getCountriesList().then(data => setCountries(data));
     }
   }, []);
 
@@ -83,5 +78,3 @@ const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
     </>
   );
 };
-
-export default HomePage;

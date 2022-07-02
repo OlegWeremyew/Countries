@@ -1,15 +1,17 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
-import { Nullable } from '../../types';
-import axios from 'axios';
-import { Info } from '../../components';
-import { ResponseType } from '../../App/types';
-import { Button } from '../../layout';
-import { searchByCountry } from '../../utils/searchByCountry/searchByCountry';
+import { Nullable } from 'types';
+import { Info } from 'components';
+import { ResponseType } from 'App/types';
+import { Button } from 'layout';
+import { searchByCountry } from 'utils';
+import { countryApi } from 'api';
+import { NameType } from './types';
+import { ResponseCountry } from 'pages/HomePage/types';
 
-const Details: FC = () => {
-  const { name } = useParams<{ name: string }>();
+export const Details: FC = () => {
+  const { name } = useParams<NameType>();
   const navigate = useNavigate();
   const [country, setCountry] = useState<Nullable<ResponseType>>(null);
 
@@ -19,7 +21,9 @@ const Details: FC = () => {
 
   useEffect(() => {
     if (name) {
-      axios.get(searchByCountry(name)).then(({ data }) => setCountry(data[0]));
+      countryApi
+        .getCountryById(searchByCountry(name))
+        .then((data: ResponseCountry) => setCountry(data[0]));
     }
   }, [name]);
 
@@ -33,5 +37,3 @@ const Details: FC = () => {
     </>
   );
 };
-
-export default Details;

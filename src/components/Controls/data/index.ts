@@ -1,4 +1,4 @@
-import { OptionType } from '../types';
+import { OptionType } from 'components/Controls/types';
 
 export const options: OptionType[] = [
   { value: 'Africa', label: 'Africa' },

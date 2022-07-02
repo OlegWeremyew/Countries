@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { IoHome } from 'react-icons/io5';
 import { Link } from 'react-scroll';
 import { Wrapper } from './components';
-import { Button } from '../../layout';
+import { Button } from 'layout';
 
 export const GoUp: FC = () => (
   <Wrapper>

@@ -1,5 +1,7 @@
 export type PaginationProps = {
-  currentPage: number;
-  onChangePage: (page: number) => void;
-  size: number;
+  pageSize: number;
+  totalCountries: number;
+  paginate: (page: number) => void;
+  nextPage: () => void;
+  prevPage: () => void;
 };
