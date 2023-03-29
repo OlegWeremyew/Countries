@@ -1,6 +1,6 @@
-import { ResponseType } from '../../../App/types';
-import { InfoItem } from '../../../components/Card/types';
-import { Nullable } from '../../../types';
+import { ResponseType } from 'App/types';
+import { InfoItem } from 'components/Card/types';
+import { Nullable } from 'types';
 import { SetStateAction } from 'react';
 
 export type CountryInfoType = {
