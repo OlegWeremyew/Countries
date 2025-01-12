@@ -1,7 +1,7 @@
 import React, { FC, lazy, useState } from 'react';
 import { Header, Main } from 'components';
 import { Routes, Route } from 'react-router-dom';
-import { ResponseType } from 'App/types';
+import type { ResponseType } from 'App/types';
 
 const HomePage = lazy(() => import('pages').then(tm => ({ default: tm.HomePage })));
 const Details = lazy(() => import('pages').then(tm => ({ default: tm.Details })));

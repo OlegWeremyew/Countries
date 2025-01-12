@@ -6,7 +6,7 @@
       "api/*": ["./api/*"],
       "App/*": ["./App/*"],
       "components/*": ["./components/*"],
-      "config/*": ["./config/*"],
+      "enums/*": ["./enums/*"],
       "layout/*": ["./layout/*"],
       "pages/*": ["./pages/*"],
       "types/*": ["./types/*"],
@@ -31,5 +31,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "./types"]
+  "include": ["src", "./types"],
 }

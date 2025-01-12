@@ -1,6 +1,6 @@
-import { OptionType } from 'components/Controls/types';
+import type { OptionType } from 'components/Controls/types';
 
-export const options: OptionType[] = [
+export const options: Readonly<OptionType[]> = [
   { value: 'Africa', label: 'Africa' },
   { value: 'America', label: 'America' },
   { value: 'Asia', label: 'Asia' },

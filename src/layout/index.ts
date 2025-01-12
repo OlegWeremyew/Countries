@@ -1,8 +1,13 @@
-import styled, { keyframes } from 'styled-components';
+import styled, {
+  keyframes,
+  type DefaultTheme,
+  type Keyframes,
+  type StyledComponent,
+} from 'styled-components';
 
 import Select from 'react-select';
 
-export const Container = styled.div`
+export const Container: StyledComponent<'div', DefaultTheme> = styled.div`
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
@@ -92,7 +97,7 @@ export const Button = styled.button.attrs({
   }
 `;
 
-export const rotateAnimation = keyframes`
+export const rotateAnimation: Keyframes = keyframes`
   0% {
     transform: rotateZ(0deg);
   }

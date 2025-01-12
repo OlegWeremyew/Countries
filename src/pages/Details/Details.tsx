@@ -3,11 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { Nullable } from 'types';
 import { Info } from 'components';
-import { ResponseType } from 'App/types';
+import type { ResponseType } from 'App/types';
 import { Button } from 'layout';
 import { searchByCountry } from 'utils';
 import { countryApi } from 'api';
-import { NameType } from './types';
+import type { NameType } from './types';
 import { ResponseCountry } from 'pages/HomePage/types';
 
 export const Details: FC = () => {
@@ -33,7 +33,7 @@ export const Details: FC = () => {
         <IoArrowBack /> Back
       </Button>
       <h1>Details {name}</h1>
-      {country && <Info {...country} />}
+      {country && <Info key={name} {...country} />}
     </>
   );
 };
