@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { Wrapper } from './components';
 
-export const List: FC<any> = ({ children }) => <Wrapper>{children}</Wrapper>;
+export const List: FC<PropsWithChildren> = ({ children }) => (
+  <Wrapper>{children}</Wrapper>
+);

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Card, Controls, List, GoUp, Pagination } from 'components';
-import { ResponseType } from 'App/types';
-import { CountryInfoType, HomePageType } from './types';
+import type { ResponseType } from 'App/types';
+import type { CountryInfoType, HomePageType } from './types';
 import { countryApi } from 'api';
 
 export const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
@@ -19,11 +19,11 @@ export const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
   };
 
   const nextPage = (): void => {
-    setCurrentPage(prev => (prev === numberOfCountries ? prev : prev + 1));
+    setCurrentPage((prev: number) => (prev === numberOfCountries ? prev : prev + 1));
   };
 
   const prevPage = (): void => {
-    setCurrentPage(prev => (prev === 1 ? prev : prev - 1));
+    setCurrentPage((prev: number) => (prev === 1 ? prev : prev - 1));
   };
 
   const handleSearch = (search: string, region: string): void => {

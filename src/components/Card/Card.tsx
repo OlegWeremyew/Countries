@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
 import {
   CardBody,
@@ -8,10 +9,9 @@ import {
   CardTitle,
   Wrapper,
 } from './components';
-import { useNavigate } from 'react-router-dom';
-import { CardType } from './types';
+import type { CardType } from './types';
 
-export const Card: FC<CardType> = ({ img, name, info = [] }) => {
+export const Card: FC<CardType> = memo(({ img, name, info = [] }) => {
   const navigate = useNavigate();
 
   const goToCountryPage = (): void => {
@@ -35,4 +35,4 @@ export const Card: FC<CardType> = ({ img, name, info = [] }) => {
       </Wrapper>
     </Tilt>
   );
-};
+});

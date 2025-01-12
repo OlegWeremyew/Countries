@@ -1,9 +1,10 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent, memo } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { Input, InputContainer } from './components';
-import { SearchType } from './types';
 
-export const Search: FC<SearchType> = ({ search, setSearch }) => {
+import type { SearchType } from './types';
+
+export const Search: FC<SearchType> = memo(({ search, setSearch }) => {
   const changeSearchValue = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.currentTarget.value);
   };
@@ -11,7 +12,7 @@ export const Search: FC<SearchType> = ({ search, setSearch }) => {
   return (
     <InputContainer>
       <IoSearch />
-      <Input onChange={e => changeSearchValue(e)} value={search} />
+      <Input onChange={changeSearchValue} value={search} />
     </InputContainer>
   );
-};
+});

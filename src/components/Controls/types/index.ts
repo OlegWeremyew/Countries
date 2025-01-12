@@ -1,8 +1,10 @@
-export type OptionType = {
+interface OptionType {
   value: string;
   label: string;
-};
+}
 
-export type ControlsType = {
+interface ControlsType {
   onSearch: (search: string, regionValue: string) => void;
-};
+}
+
+export type { OptionType, ControlsType };

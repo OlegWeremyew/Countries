@@ -1,10 +1,12 @@
-export type CardType = {
+interface CardType {
   img: string;
   name: string;
   info: InfoItem[];
-};
+}
 
-export type InfoItem = {
+interface InfoItem {
   title: string;
   description: string;
-};
+}
+
+export type { CardType, InfoItem };
