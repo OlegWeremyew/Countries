@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 
-export const Wrapper = styled.section`
+export const Wrapper: StyledComponent<'section', object> = styled.section`
   margin-top: 3rem;
   width: 100%;
   display: grid;
@@ -18,54 +18,57 @@ export const Wrapper = styled.section`
   }
 `;
 
-export const InfoImage = styled.img`
+export const InfoImage: StyledComponent<'img', object> = styled.img`
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border: 1pxsolid var(--colors-text);
+  border: 1px solid var(--colors-text);
 `;
 
-export const InfoTitle = styled.h1`
+export const InfoTitle: StyledComponent<'h1', object> = styled.h1`
   margin: 0;
   font-weight: var(--fw-normal);
 `;
 
-export const ListGroup = styled.div`
+export const ListGroup: StyledComponent<'div', object> = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
   @media (min-width: 1024px) {
     flex-direction: row;
     gap: 4rem;
   }
 `;
 
-export const List = styled.ul`
+export const List: StyledComponent<'ul', object> = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
 `;
 
-export const ListItem = styled.li`
+export const ListItem: StyledComponent<'li', object> = styled.li`
   line-height: 1.8;
+
   & > b {
     font-weight: var(--fw-bold);
   }
 `;
 
-export const Meta = styled.div`
+export const Meta: StyledComponent<'div', object> = styled.div`
   margin-top: 3rem;
   display: flex;
   gap: 1.5rem;
   flex-direction: column;
   align-items: flex-start;
+
   & > b {
     font-weight: var(--fw-bold);
   }
 `;
 
-export const TagGroup = styled.div`
+export const TagGroup: StyledComponent<'div', object> = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;

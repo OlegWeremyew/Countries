@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
-export const Wrapper = styled.section`
+export const Wrapper: StyledComponent<'section', object> = styled.section`
   width: 100%;
   padding: 1rem 0;
   display: grid;

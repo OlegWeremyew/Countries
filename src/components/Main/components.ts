@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
-export const Wrapper = styled.main`
+export const Wrapper: StyledComponent<'main', object> = styled.main`
   padding: 1rem 0;
 
   @media (min-width: 767px) {

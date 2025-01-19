@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
-export const Wrapper = styled.article`
+export const Wrapper: StyledComponent<'article', object> = styled.article`
   border-radius: var(--radii);
   background-color: var(--colors-ui-base);
   box-shadow: var(--shadow);
@@ -12,7 +12,7 @@ export const Wrapper = styled.article`
   }
 `;
 
-export const CardImage = styled.img`
+export const CardImage: StyledComponent<'img', object> = styled.img`
   display: block;
   width: 100%;
   height: 150px;
@@ -21,23 +21,23 @@ export const CardImage = styled.img`
   box-shadow: var(--shadow);
 `;
 
-export const CardBody = styled.div`
+export const CardBody: StyledComponent<'div', object> = styled.div`
   padding: 1.5rem 1.5rem 1rem;
 `;
 
-export const CardTitle = styled.h3`
+export const CardTitle: StyledComponent<'h3', object> = styled.h3`
   margin: 0;
   font-size: var(--fs-md);
   font-weight: var(--fw-bold);
 `;
 
-export const CardList = styled.ul`
+export const CardList: StyledComponent<'ul', object> = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0.5rem 0 0;
 `;
 
-export const CardListItem = styled.li`
+export const CardListItem: StyledComponent<'li', object> = styled.li`
   font-size: var(--fs-sm);
   line-height: 1.5rem;
   font-weight: var(--fw-light);

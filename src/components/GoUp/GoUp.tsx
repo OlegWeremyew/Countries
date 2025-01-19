@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { type FC } from 'react';
 import { IoHome } from 'react-icons/io5';
 import { Link } from 'react-scroll';
 import { Wrapper } from './components';

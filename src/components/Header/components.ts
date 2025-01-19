@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled, { StyledComponent } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const HeaderElement = styled.header`
+export const HeaderElement: StyledComponent<'header', object> = styled.header`
   box-shadow: var(--shadow);
   background-color: var(--colors-ui-base);
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper: StyledComponent<'div', object> = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +32,7 @@ export const Title = styled(Link).attrs({
   }
 `;
 
-export const ModeSwitcher = styled.div`
+export const ModeSwitcher: StyledComponent<'div', object> = styled.div`
   color: var(--colors-text);
   font-size: var(--fs-sm);
   cursor: pointer;

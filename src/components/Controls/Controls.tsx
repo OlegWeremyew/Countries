@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { type FC, useEffect, useState } from 'react';
 import { Search } from './Search';
 import { Wrapper } from './components';
 import type { ControlsType } from './types';

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
-export const InputContainer = styled.label`
+export const InputContainer: StyledComponent<'label', object> = styled.label`
   background-color: var(--colors-ui-base);
   padding: 1rem 2rem;
   display: flex;
@@ -23,7 +23,7 @@ export const InputContainer = styled.label`
   }
 `;
 
-export const Input = styled.input.attrs({
+export const Input: StyledComponent<'input', object> = styled.input.attrs({
   type: 'search',
   placeholder: 'Search for a country...',
 })`

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react';
+import React, { type FC, useEffect, useMemo, useState } from 'react';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 import { HeaderElement, ModeSwitcher, Title, Wrapper } from './components';
 import { Container } from 'layout';

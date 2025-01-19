@@ -1,4 +1,4 @@
-import React, { FC, lazy, useState } from 'react';
+import React, { type FC, lazy, useState } from 'react';
 import { Header, Main } from 'components';
 import { Routes, Route } from 'react-router-dom';
 import type { ResponseType } from 'App/types';
@@ -10,7 +10,7 @@ const NotFoundPage = lazy(() =>
 );
 
 export const App: FC = () => {
-  const [countries, setCountries] = useState<ResponseType[]>([]);
+  const [countries, setCountries] = useState<ResponseType[]>([] as ResponseType[]);
 
   return (
     <>

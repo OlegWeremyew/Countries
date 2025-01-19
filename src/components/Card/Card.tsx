@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { type FC, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
 import {
@@ -21,13 +21,13 @@ export const Card: FC<CardType> = memo(({ img, name, info = [] }) => {
   return (
     <Tilt>
       <Wrapper onClick={goToCountryPage}>
-        <CardImage src={img} alt="country flag" />
+        <CardImage src={img} alt="country flag" title="country flag" />
         <CardBody>
           <CardTitle>{name}</CardTitle>
           <CardList>
-            {info.map(el => (
-              <CardListItem key={el.title}>
-                <b>{el.title}:</b> {el.description}
+            {info.map(({ title, description }) => (
+              <CardListItem key={title}>
+                <b>{title}:</b> {description}
               </CardListItem>
             ))}
           </CardList>

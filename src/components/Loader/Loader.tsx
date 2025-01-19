@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { type FC } from 'react';
 import { IoEarth } from 'react-icons/io5';
 import { RotateElem, Wrapper } from './components';
 

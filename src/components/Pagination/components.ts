@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { type StyledComponent } from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper: StyledComponent<'div', object> = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Button = styled.button.attrs({
+export const Button: StyledComponent<'button', object> = styled.button.attrs({
   type: 'button',
 })`
   display: flex;

@@ -1,1 +1,3 @@
-export type NameType = { name: string };
+export interface NameType {
+  name: string;
+}

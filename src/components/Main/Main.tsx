@@ -1,4 +1,4 @@
-import React, { FC, type PropsWithChildren } from 'react';
+import React, { type FC, type PropsWithChildren } from 'react';
 import { Wrapper } from './components';
 import { Container } from 'layout';
 

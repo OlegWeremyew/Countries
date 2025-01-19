@@ -1,3 +1,3 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-export const NotFoundPage: FC = () => <div>NotFoundPage</div>;
+export const NotFoundPage: React.FC = () => <div>NotFoundPage</div>;

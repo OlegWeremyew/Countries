@@ -28,9 +28,11 @@ export const HomePage: FC<HomePageType> = ({ countries, setCountries }) => {
 
   const handleSearch = (search: string, region: string): void => {
     let data = [...countries];
+
     if (region) {
       data = data.filter(country => country.region.includes(region));
     }
+
     if (search) {
       data = data.filter(country =>
         country.name.toLowerCase().includes(search.toLowerCase()),

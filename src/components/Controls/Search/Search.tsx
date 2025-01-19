@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, memo } from 'react';
+import React, { type FC, type ChangeEvent, memo } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { Input, InputContainer } from './components';
 

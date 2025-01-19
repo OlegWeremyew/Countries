@@ -1,6 +1,6 @@
-import React, { FC, memo, useEffect, useState } from 'react';
-import { Button, Wrapper } from './components';
+import React, { type FC, memo, useEffect, useState } from 'react';
 import { IoCaretBackSharp, IoCaretForwardSharp } from 'react-icons/io5';
+import { Button, Wrapper } from './components';
 import type { PaginationProps } from 'components/Pagination/types';
 
 const dotsInitial = '...';

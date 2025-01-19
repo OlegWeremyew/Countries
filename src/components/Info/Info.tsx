@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from 'react';
+import React, { type FC, memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   InfoImage,
